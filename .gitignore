@@ -1,0 +1,32 @@
+# Dependencies
+/node_modules/
+
+# Next.js build output
+/.next/
+/out/
+/build/
+/coverage/
+/.turbo/
+
+# Vercel local configuration
+/.vercel/
+
+# Local environment files and secrets
+.env*
+!.env.example
+*.pem
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

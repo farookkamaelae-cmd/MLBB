@@ -1,0 +1,210 @@
+[
+  {
+    "id": "fanny",
+    "name": "Fanny",
+    "role": "Assassin",
+    "lanes": ["Jungler"],
+    "tier": "S+",
+    "winRate": "54.2%",
+    "pickRate": "3.8%",
+    "banRate": "62.4%",
+    "damageType": "Physical",
+    "stats": { "cc": 3, "burst": 9, "durability": 4, "mobility": 10, "scaling": 7 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/fanny.png",
+    "synergyWith": ["angela", "grock"],
+    "recommendedSpells": ["Retribution"],
+    "counterItems": ["Antique Cuirass", "Sea Halberd", "Wind of Nature"],
+    "recommendedBuild": ["Blade of Heptaseas", "Blade of Despair", "Rose Gold Meteor", "Malefic Roar", "Immortality"],
+    "counteredBy": [
+      { "heroId": "khufra", "score": 9.5, "reason": "Skill 2 (Bouncing Ball) ขัดการพุ่งสลิงของ Fanny ได้ทันที" },
+      { "heroId": "saber", "score": 9.0, "reason": "Ultimate ล็อคเป้าเดี่ยว (Hard CC) หยุด Fanny กลางอากาศ" },
+      { "heroId": "franco", "score": 8.5, "reason": "Ultimate (Suppression) กดขัดสกิลทะลุการพุ่งสลิงได้เด็ดขาด" }
+    ]
+  },
+  {
+    "id": "wanwan",
+    "name": "WanWan",
+    "role": "Marksman",
+    "lanes": ["Gold Lane"],
+    "tier": "S+",
+    "winRate": "53.8%",
+    "pickRate": "4.5%",
+    "banRate": "48.1%",
+    "damageType": "Physical",
+    "stats": { "cc": 4, "burst": 9, "durability": 3, "mobility": 9, "scaling": 9 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/wanwan.png",
+    "synergyWith": ["angela", "lolita"],
+    "recommendedSpells": ["Inspire", "Aegis"],
+    "counterItems": ["Dominance Ice", "Antique Cuirass", "Blade Armor"],
+    "recommendedBuild": ["Corrosion Scythe", "Demon Hunter Sword", "Windtalker", "Wind of Nature", "Malefic Roar"],
+    "counteredBy": [
+      { "heroId": "phoveus", "score": 9.5, "reason": "WanWan กระโดดยิงทุกครั้ง เข้าทาง Ult ของ Phoveus" },
+      { "heroId": "khufra", "score": 8.5, "reason": "Skill 2 บอลขัดการกระโดดเก็บจุดอ่อนของ WanWan" }
+    ]
+  },
+  {
+    "id": "ling",
+    "name": "Ling",
+    "role": "Assassin",
+    "lanes": ["Jungler"],
+    "tier": "S+",
+    "winRate": "53.1%",
+    "pickRate": "3.5%",
+    "banRate": "42.0%",
+    "damageType": "Physical",
+    "stats": { "cc": 2, "burst": 9, "durability": 3, "mobility": 10, "scaling": 8 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/ling.png",
+    "synergyWith": ["angela", "diggie"],
+    "recommendedSpells": ["Retribution"],
+    "counterItems": ["Antique Cuirass", "Wind of Nature"],
+    "recommendedBuild": ["Berserker's Fury", "Endless Battle", "Windtalker", "Blade of Despair", "Malefic Roar"],
+    "counteredBy": [
+      { "heroId": "khufra", "score": 9.0, "reason": "Skill 2 ขัดการไต่กำแพงและการพุ่งของ Ling" },
+      { "heroId": "saber", "score": 8.5, "reason": "Ultimate กดล็อคก่อน Ling จะกระโดดเก็บดาบ" },
+      { "heroId": "minsitthar", "score": 9.2, "reason": "Ult Grounded พื้นที่ห้ามใช้สกิลพุ่งทุกลักษณะ" }
+    ]
+  },
+  {
+    "id": "khufra",
+    "name": "Khufra",
+    "role": "Tank",
+    "lanes": ["Roamer"],
+    "tier": "S",
+    "winRate": "52.1%",
+    "pickRate": "2.9%",
+    "banRate": "18.5%",
+    "damageType": "Physical",
+    "stats": { "cc": 10, "burst": 4, "durability": 9, "mobility": 7, "scaling": 5 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/khufra.png",
+    "synergyWith": ["pharsa", "claude"],
+    "recommendedSpells": ["Flicker"],
+    "counterItems": ["Necklace of Durance", "Dominance Ice"],
+    "recommendedBuild": ["Tough Boots - Conceal", "Dominance Ice", "Athena's Shield", "Antique Cuirass", "Immortality"],
+    "counteredBy": [
+      { "heroId": "valir", "score": 9.0, "reason": "Skill 2 ผลัก Khufra ออกเมื่อกระโดดเข้ามา พร้อม Ult ล้าง CC" },
+      { "heroId": "diggie", "score": 8.5, "reason": "Ultimate ล้าง CC มวลชนจาก Ult ของ Khufra ใน Team Fight" }
+    ]
+  },
+  {
+    "id": "chou",
+    "name": "Chou",
+    "role": "Fighter",
+    "lanes": ["EXP Lane", "Roamer"],
+    "tier": "S",
+    "winRate": "51.4%",
+    "pickRate": "5.2%",
+    "banRate": "12.0%",
+    "damageType": "Physical",
+    "stats": { "cc": 8, "burst": 7, "durability": 6, "mobility": 9, "scaling": 6 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/chou.png",
+    "synergyWith": ["yve", "pharsa"],
+    "recommendedSpells": ["Flicker"],
+    "counterItems": ["Antique Cuirass", "Dominance Ice"],
+    "recommendedBuild": ["Blade of Heptaseas", "Endless Battle", "Blade of Despair", "Antique Cuirass", "Immortality"],
+    "counteredBy": [
+      { "heroId": "khufra", "score": 8.0, "reason": "ขัดจังหวะการทำคอมโบ Shunpo และ Jeet Kune Do" },
+      { "heroId": "diggie", "score": 8.5, "reason": "Ultimate ล้าง CC ของ Chou ทำให้เตะตัวคีย์ไม่ได้" },
+      { "heroId": "phoveus", "score": 9.0, "reason": "สกิล Dash หลายครั้ง เข้าทาง Ult ของ Phoveus แบบเต็มๆ" }
+    ]
+  },
+  {
+    "id": "minsitthar",
+    "name": "Minsitthar",
+    "role": "Fighter",
+    "lanes": ["EXP Lane", "Roamer"],
+    "tier": "S",
+    "winRate": "53.5%",
+    "pickRate": "2.8%",
+    "banRate": "25.4%",
+    "damageType": "Physical",
+    "stats": { "cc": 9, "burst": 6, "durability": 8, "mobility": 4, "scaling": 7 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/minsitthar.png",
+    "synergyWith": ["karrie", "badang"],
+    "recommendedSpells": ["Flicker", "Petrify"],
+    "counterItems": ["Antique Cuirass", "Dominance Ice"],
+    "recommendedBuild": ["Corrosion Scythe", "Demon Hunter Sword", "Thunder Belt", "Athena's Shield", "Immortality"],
+    "counteredBy": [
+      { "heroId": "valir", "score": 8.5, "reason": "ระยะสกิลเผาไกลกว่า ป้องกัน Minsitthar ไม่ให้เดินเข้ามาตั้งวง Ult" }
+    ]
+  },
+  {
+    "id": "valir",
+    "name": "Valir",
+    "role": "Mage",
+    "lanes": ["Mid Lane"],
+    "tier": "A",
+    "winRate": "50.8%",
+    "pickRate": "3.1%",
+    "banRate": "8.2%",
+    "damageType": "Magic",
+    "stats": { "cc": 9, "burst": 7, "durability": 4, "mobility": 4, "scaling": 6 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/valir.png",
+    "synergyWith": ["hylos", "baxia"],
+    "recommendedSpells": ["Flicker", "Sprint"],
+    "counterItems": ["Radiant Armor", "Athena's Shield"],
+    "recommendedBuild": ["Demon Shoes", "Ice Queen Wand", "Glowing Wand", "Genius Wand", "Immortality"],
+    "counteredBy": [
+      { "heroId": "lesley", "score": 8.0, "reason": "ระยะยิงสไนเปอร์ไกลกว่าระยะผลักดันของ Valir" }
+    ]
+  },
+  {
+    "id": "diggie",
+    "name": "Diggie",
+    "role": "Support",
+    "lanes": ["Roamer"],
+    "tier": "S+",
+    "winRate": "55.0%",
+    "pickRate": "2.4%",
+    "banRate": "51.2%",
+    "damageType": "Magic",
+    "stats": { "cc": 8, "burst": 5, "durability": 4, "mobility": 4, "scaling": 7 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/diggie.png",
+    "synergyWith": ["natan", "karrie"],
+    "recommendedSpells": ["Flameshot", "Flicker"],
+    "counterItems": ["Dominance Ice"],
+    "recommendedBuild": ["Demon Shoes - Encourage", "Fleeting Time", "Ice Queen Wand", "Athena's Shield", "Immortality"],
+    "counteredBy": [
+      { "heroId": "hylos", "score": 8.0, "reason": "ความอึดและวิ่งไว สามารถเดินกดดันต้อน Diggie ได้โดยไม่พึ่ง Hard CC" }
+    ]
+  },
+  {
+    "id": "esmeralda",
+    "name": "Esmeralda",
+    "role": "Mage",
+    "lanes": ["EXP Lane"],
+    "tier": "S",
+    "winRate": "52.4%",
+    "pickRate": "3.3%",
+    "banRate": "15.1%",
+    "damageType": "Hybrid",
+    "stats": { "cc": 4, "burst": 6, "durability": 9, "mobility": 8, "scaling": 8 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/esmeralda.png",
+    "synergyWith": ["angela", "rafaela"],
+    "recommendedSpells": ["Purify", "Sprint"],
+    "counterItems": ["Dominance Ice", "Sea Halberd", "Durance"],
+    "recommendedBuild": ["Warrior Boots", "Enchanted Talisman", "Dominance Ice", "Oracle", "Ice Queen Wand"],
+    "counteredBy": [
+      { "heroId": "baxia", "score": 8.5, "reason": "Passive ตัดการฟื้นฟูและสร้างเกราะป้องกันได้ถึง 50%" }
+    ]
+  },
+  {
+    "id": "saber",
+    "name": "Saber",
+    "role": "Assassin",
+    "lanes": ["Jungler", "Roamer"],
+    "tier": "A",
+    "winRate": "49.8%",
+    "pickRate": "4.1%",
+    "banRate": "10.2%",
+    "damageType": "Physical",
+    "stats": { "cc": 7, "burst": 9, "durability": 3, "mobility": 6, "scaling": 5 },
+    "avatarUrl": "https://img.mobilelegends.com/official/hero/saber.png",
+    "synergyWith": ["eudora", "kadita"],
+    "recommendedSpells": ["Execute", "Retribution"],
+    "counterItems": ["Antique Cuirass", "Immortality", "Winter Crown"],
+    "recommendedBuild": ["Blade of Heptaseas", "Hunter Strike", "Blade of Despair", "Malefic Roar", "Immortality"],
+    "counteredBy": [
+      { "heroId": "diggie", "score": 9.0, "reason": "Ultimate ของ Diggie ให้โล่และล้าง CC จาก Ult ของ Saber" }
+    ]
+  }
+]
