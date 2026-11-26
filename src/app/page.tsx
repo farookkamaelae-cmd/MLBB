@@ -2,12 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import heroesData from '@/data/heroes.json';
-import { Hero } from '@/utils/draftAnalysis';
+import { useHeroes } from '@/hooks/useHeroes';
 
 export default function DashboardHome() {
-  const heroes: Hero[] = heroesData as any[];
-  const tierSPlus = heroes.filter((h) => h.tier === 'S+');
+  const { heroes, loading, error, reload, source, period, rankingWarning, updatedAt, catalogUpdatedAt } = useHeroes();
+  const topHeroes = heroes.filter((hero) => hero.rank !== undefined).slice().sort((left, right) => (left.rank ?? Number.MAX_SAFE_INTEGER) - (right.rank ?? Number.MAX_SAFE_INTEGER)).slice(0, 3);
 
   return (
     <div className="p-4 sm:p-8 space-y-8 font-mono max-w-6xl mx-auto">
@@ -43,17 +42,19 @@ export default function DashboardHome() {
       {/* Tier S+ Recommended Meta Heroes */}
       <section className="space-y-4">
         <div className="flex items-center justify-between border-b border-white/10 pb-3">
-          <h2 className="text-base font-bold text-white flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 shadow-[0_0_8px_#facc15]"></span>
-            ฮีโร่แนะนำระดับ META (TIER S+)
-          </h2>
+          <h2 className="text-base font-bold text-white flex items-center gap-2">Official top win-rate heroes</h2>
           <Link href="/tier-list" className="text-xs text-blue-400 hover:underline">
             ดูทั้งหมด →
           </Link>
         </div>
 
+        <p className="text-[10px] text-slate-500">{source}{period ? " | " + period : ""}{updatedAt ? " | Ranking update " + new Date(updatedAt).toLocaleString() : ""}{catalogUpdatedAt ? " | Catalog update " + new Date(catalogUpdatedAt).toLocaleString() : ""}</p>
+        {rankingWarning ? <p role="status" className="text-xs text-amber-300">{rankingWarning}</p> : null}
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {tierSPlus.map((hero) => (
+          {loading ? <p className="col-span-full text-sm text-slate-400">Loading hero data…</p> : error ? (
+            <div role="alert" className="col-span-full rounded-xl border border-amber-500/30 bg-amber-950/20 p-4 text-sm text-amber-200">{error}<button onClick={reload} className="ml-3 underline">Retry</button></div>
+          ) : topHeroes.length === 0 ? <p className="col-span-full text-sm text-slate-400">No official rankings are available.</p> : topHeroes.map((hero) => (
             <div
               key={hero.id}
               className="bg-[#121317] border border-white/10 hover:border-yellow-500/50 rounded-2xl p-4 transition shadow-xl space-y-3 group"
@@ -66,25 +67,25 @@ export default function DashboardHome() {
                   <div className="flex items-center gap-1.5">
                     <h3 className="font-bold text-white text-base">{hero.name}</h3>
                     <span className="bg-yellow-950 text-yellow-300 border border-yellow-500/50 text-[10px] px-1.5 py-0.2 rounded font-bold">
-                      {hero.tier}
+                      #{hero.rank}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400">{hero.role} · {hero.lanes.join(', ')}</p>
+                  <p className="text-xs text-slate-400">{(hero.roles ?? [hero.role]).join(' / ')} · {hero.lanes.join(', ')}</p>
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-1 bg-[#0b0c0e] border border-white/5 rounded-xl p-2 text-center text-[10px]">
                 <div>
                   <span className="text-slate-500 block">WIN RATE</span>
-                  <span className="font-bold text-emerald-400">{hero.winRate}</span>
+                  <span className="font-bold text-emerald-400">{hero.winRate ?? '-'}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 block">PICK RATE</span>
-                  <span className="font-bold text-slate-200">{hero.pickRate}</span>
+                  <span className="font-bold text-slate-200">{hero.pickRate ?? '-'}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 block">BAN RATE</span>
-                  <span className="font-bold text-red-400">{hero.banRate}</span>
+                  <span className="font-bold text-red-400">{hero.banRate ?? '-'}</span>
                 </div>
               </div>
             </div>
@@ -97,12 +98,11 @@ export default function DashboardHome() {
         <h2 className="text-base font-bold text-white border-b border-white/10 pb-3">
           เมนูฟีเจอร์หลัก (CORE FEATURES)
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {[
             { title: 'Draft Master 5v5', desc: 'วิเคราะห์ทีมเรียลไทม์', icon: '🪄', href: '/draft-master' },
             { title: 'Tier List', desc: 'จัดอันดับประจำแพตช์', icon: '🏆', href: '/tier-list' },
             { title: 'Counter Pick', desc: 'ค้นหาตัวแก้ทางเดี่ยว', icon: '⚔️', href: '/counter-pick' },
-            { title: 'Item Builds', desc: 'ไอเทมและเซ็ตจัดเต็ม', icon: '🔨', href: '/item-build' },
           ].map((f) => (
             <Link
               key={f.title}

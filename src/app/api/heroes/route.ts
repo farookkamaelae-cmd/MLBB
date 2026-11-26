@@ -1,28 +1,36 @@
 import { NextResponse } from 'next/server';
-import heroesData from '@/data/heroes.json';
+import { getOfficialHeroData } from '@/utils/mlbbOfficial';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const role = searchParams.get('role');
-  const lane = searchParams.get('lane');
-  const search = searchParams.get('search');
+  const params = new URL(request.url).searchParams;
+  const role = params.get('role');
+  const lane = params.get('lane');
+  const search = params.get('search')?.trim().toLocaleLowerCase();
 
-  let heroes = [...heroesData];
+  try {
+    const official = await getOfficialHeroData();
+    const data = official.heroes
+      .filter((hero) => !role || role === 'All' || hero.roles?.includes(role) || hero.role === role)
+      .filter((hero) => !lane || lane === 'All' || hero.lanes.includes(lane))
+      .filter((hero) => !search || hero.name.toLocaleLowerCase().includes(search));
 
-  if (search) {
-    heroes = heroes.filter((h) => h.name.toLowerCase().includes(search.toLowerCase()));
+    return NextResponse.json({
+      success: true,
+      total: data.length,
+      source: official.source,
+      period: official.period,
+      rankingWarning: official.rankingWarning,
+      updatedAt: official.rankingUpdatedAt ?? official.catalogUpdatedAt,
+      catalogUpdatedAt: official.catalogUpdatedAt,
+      data,
+    });
+  } catch (error) {
+    console.error('Official MLBB data request failed:', error);
+    return NextResponse.json(
+      { success: false, error: 'Unable to load the latest official MLBB data.' },
+      { status: 502 }
+    );
   }
-  if (role && role !== 'All') {
-    heroes = heroes.filter((h) => h.role === role);
-  }
-  if (lane && lane !== 'All') {
-    heroes = heroes.filter((h) => h.lanes.includes(lane));
-  }
-
-  return NextResponse.json({
-    success: true,
-    total: heroes.length,
-    updatedAt: new Date().toISOString(),
-    data: heroes,
-  });
 }

@@ -12,6 +12,7 @@ interface DraftState {
   openModal: (type: SlotType, index: number) => void;
   closeModal: () => void;
   selectHero: (hero: Hero) => void;
+  refreshHeroData: (heroes: Hero[]) => void;
   loadDraft: (draft: {
     enemyPicks: (Hero | null)[];
     allyPicks: (Hero | null)[];
@@ -48,6 +49,17 @@ export const useDraftStore = create<DraftState>((set) => ({
         updated[index] = hero;
         return { bannedHeroes: updated, activeSlot: null };
       }
+    }),
+
+  refreshHeroData: (heroes) =>
+    set((state) => {
+      const byId = new Map(heroes.map((hero) => [hero.id, hero]));
+      const refreshPicks = (picks: (Hero | null)[]) => picks.map((hero) => hero ? byId.get(hero.id) ?? hero : null);
+      return {
+        enemyPicks: refreshPicks(state.enemyPicks),
+        allyPicks: refreshPicks(state.allyPicks),
+        bannedHeroes: refreshPicks(state.bannedHeroes),
+      };
     }),
 
   loadDraft: (draft) =>

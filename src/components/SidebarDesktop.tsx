@@ -21,25 +21,6 @@ export const SidebarDesktop: React.FC = () => {
         { name: 'Tier List', href: '/tier-list', icon: '🏆' },
         { name: 'Counter Pick', href: '/counter-pick', icon: '⚔️' },
         { name: 'Draft Master (5v5)', href: '/draft-master', icon: '🪄' },
-        { name: 'สถิติฮีโร่', href: '/stats', icon: '📈' },
-        { name: 'Matchup Comparison', href: '/matchup', icon: '⚖️' },
-        { name: 'องค์ประกอบทีม', href: '/team-comp', icon: '🧩' },
-      ],
-    },
-    {
-      group: 'ไอเทม',
-      items: [
-        { name: 'Item Build', href: '/item-build', icon: '🔨' },
-        { name: 'รายการไอเทม', href: '/items', icon: '📦' },
-        { name: 'Emblem Set', href: '/emblem', icon: '🎖️' },
-      ],
-    },
-    {
-      group: 'ชุมชน & เพิ่มเติม',
-      items: [
-        { name: 'การสนทนา & เทคนิค', href: '/community', icon: '💬' },
-        { name: 'อัปเดตแพตช์', href: '/patch-notes', icon: '📣' },
-        { name: 'เกี่ยวกับเรา', href: '/about', icon: 'ℹ️' },
       ],
     },
   ];

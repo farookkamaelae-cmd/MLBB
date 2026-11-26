@@ -44,12 +44,12 @@ export const HeroSearchModal: React.FC<HeroSearchModalProps> = ({ allHeroes }) =
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return allHeroes.filter((h) => {
-      const matchRole = roleFilter === 'All' || h.role === roleFilter;
+      const matchRole = roleFilter === 'All' || h.roles?.includes(roleFilter) || h.role === roleFilter;
       if (!matchRole) return false;
       if (!q) return true;
       return (
         h.name.toLowerCase().includes(q) ||
-        h.role.toLowerCase().includes(q) ||
+        (h.roles ?? [h.role]).some((role) => role.toLowerCase().includes(q)) ||
         h.lanes.some((l) => l.toLowerCase().includes(q))
       );
     });
@@ -153,7 +153,7 @@ export const HeroSearchModal: React.FC<HeroSearchModalProps> = ({ allHeroes }) =
                     <span className="text-xs font-mono font-medium text-slate-200 truncate w-full text-center">
                       {hero.name}
                     </span>
-                    <span className="text-[9px] font-mono text-slate-500">{hero.role}</span>
+                    <span className="text-[9px] font-mono text-slate-500">{(hero.roles ?? [hero.role]).join(' / ')}</span>
                     {isSelected && (
                       <span className="absolute top-1 right-1 text-[8px] font-mono bg-red-950 text-red-300 border border-red-800/50 px-1 rounded">
                         USED
